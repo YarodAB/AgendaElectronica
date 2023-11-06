@@ -44,6 +44,11 @@ public class Principal extends javax.swing.JFrame {
         labelNac = new javax.swing.JLabel();
         fieldNac = new javax.swing.JTextField();
         separador2 = new javax.swing.JSeparator();
+        btnIzquierda = new javax.swing.JButton();
+        btnDerecha = new javax.swing.JButton();
+        btnGuardar = new javax.swing.JButton();
+        jLabel2 = new javax.swing.JLabel();
+        jTextField1 = new javax.swing.JTextField();
 
         javax.swing.GroupLayout jPanel2Layout = new javax.swing.GroupLayout(jPanel2);
         jPanel2.setLayout(jPanel2Layout);
@@ -115,6 +120,20 @@ public class Principal extends javax.swing.JFrame {
             }
         });
 
+        btnIzquierda.setFont(new java.awt.Font("Dialog", 0, 14)); // NOI18N
+        btnIzquierda.setText("<<");
+
+        btnDerecha.setFont(new java.awt.Font("Dialog", 0, 14)); // NOI18N
+        btnDerecha.setText(">>");
+        btnDerecha.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnDerechaActionPerformed(evt);
+            }
+        });
+
+        btnGuardar.setFont(new java.awt.Font("Dialog", 0, 18)); // NOI18N
+        btnGuardar.setText("Guardar");
+
         javax.swing.GroupLayout panelTextoLayout = new javax.swing.GroupLayout(panelTexto);
         panelTexto.setLayout(panelTextoLayout);
         panelTextoLayout.setHorizontalGroup(
@@ -151,6 +170,14 @@ public class Principal extends javax.swing.JFrame {
                         .addComponent(fieldNac, javax.swing.GroupLayout.PREFERRED_SIZE, 155, javax.swing.GroupLayout.PREFERRED_SIZE)))
                 .addGap(98, 98, 98))
             .addComponent(separador2, javax.swing.GroupLayout.Alignment.TRAILING)
+            .addGroup(panelTextoLayout.createSequentialGroup()
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addComponent(btnIzquierda, javax.swing.GroupLayout.PREFERRED_SIZE, 57, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(18, 18, 18)
+                .addComponent(btnGuardar, javax.swing.GroupLayout.PREFERRED_SIZE, 155, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(18, 18, 18)
+                .addComponent(btnDerecha)
+                .addGap(258, 258, 258))
         );
         panelTextoLayout.setVerticalGroup(
             panelTextoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -175,8 +202,24 @@ public class Principal extends javax.swing.JFrame {
                     .addComponent(labelNac, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                 .addGap(34, 34, 34)
                 .addComponent(separador2, javax.swing.GroupLayout.PREFERRED_SIZE, 10, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(31, 31, 31))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addGroup(panelTextoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(btnDerecha)
+                    .addComponent(btnGuardar, javax.swing.GroupLayout.DEFAULT_SIZE, 42, Short.MAX_VALUE)
+                    .addComponent(btnIzquierda, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                .addGap(11, 11, 11))
         );
+
+        jLabel2.setFont(new java.awt.Font("Dialog", 0, 14)); // NOI18N
+        jLabel2.setText("Indice  :");
+
+        jTextField1.setFont(new java.awt.Font("Dialog", 0, 14)); // NOI18N
+        jTextField1.setText("0");
+        jTextField1.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jTextField1ActionPerformed(evt);
+            }
+        });
 
         javax.swing.GroupLayout panelPrincipalLayout = new javax.swing.GroupLayout(panelPrincipal);
         panelPrincipal.setLayout(panelPrincipalLayout);
@@ -195,6 +238,12 @@ public class Principal extends javax.swing.JFrame {
                         .addContainerGap()
                         .addComponent(panelTexto, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)))
                 .addContainerGap())
+            .addGroup(panelPrincipalLayout.createSequentialGroup()
+                .addGap(381, 381, 381)
+                .addComponent(jLabel2)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addComponent(jTextField1, javax.swing.GroupLayout.PREFERRED_SIZE, 29, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
         panelPrincipalLayout.setVerticalGroup(
             panelPrincipalLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -205,7 +254,11 @@ public class Principal extends javax.swing.JFrame {
                 .addComponent(separador1, javax.swing.GroupLayout.PREFERRED_SIZE, 10, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(panelTexto, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addGap(175, 175, 175))
+                .addGap(37, 37, 37)
+                .addGroup(panelPrincipalLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jLabel2)
+                    .addComponent(jTextField1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(122, 122, 122))
         );
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
@@ -246,42 +299,20 @@ public class Principal extends javax.swing.JFrame {
         // TODO add your handling code here:
     }//GEN-LAST:event_fieldNacActionPerformed
 
-    /**
-     * @param args the command line arguments
-     */
-    public static void main(String args[]) {
-        /* Set the Nimbus look and feel */
-        //<editor-fold defaultstate="collapsed" desc=" Look and feel setting code (optional) ">
-        /* If Nimbus (introduced in Java SE 6) is not available, stay with the default look and feel.
-         * For details see http://download.oracle.com/javase/tutorial/uiswing/lookandfeel/plaf.html 
-         */
-        try {
-            for (javax.swing.UIManager.LookAndFeelInfo info : javax.swing.UIManager.getInstalledLookAndFeels()) {
-                if ("Nimbus".equals(info.getName())) {
-                    javax.swing.UIManager.setLookAndFeel(info.getClassName());
-                    break;
-                }
-            }
-        } catch (ClassNotFoundException ex) {
-            java.util.logging.Logger.getLogger(Principal.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
-        } catch (InstantiationException ex) {
-            java.util.logging.Logger.getLogger(Principal.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
-        } catch (IllegalAccessException ex) {
-            java.util.logging.Logger.getLogger(Principal.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
-        } catch (javax.swing.UnsupportedLookAndFeelException ex) {
-            java.util.logging.Logger.getLogger(Principal.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
-        }
-        //</editor-fold>
+    private void btnDerechaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnDerechaActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_btnDerechaActionPerformed
 
-        /* Create and display the form */
-        java.awt.EventQueue.invokeLater(new Runnable() {
-            public void run() {
-                new Principal().setVisible(true);
-            }
-        });
-    }
+    private void jTextField1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jTextField1ActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_jTextField1ActionPerformed
+
+
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JButton btnDerecha;
+    private javax.swing.JButton btnGuardar;
+    private javax.swing.JButton btnIzquierda;
     private javax.swing.JTextField fieldApellido;
     private javax.swing.JTextField fieldDireccion;
     private javax.swing.JTextField fieldNac;
@@ -289,7 +320,9 @@ public class Principal extends javax.swing.JFrame {
     private javax.swing.JTextField fieldRut;
     private javax.swing.JTextField fieldTelefono;
     private javax.swing.JLabel jLabel1;
+    private javax.swing.JLabel jLabel2;
     private javax.swing.JPanel jPanel2;
+    private javax.swing.JTextField jTextField1;
     private javax.swing.JLabel labelApellido;
     private javax.swing.JLabel labelDireccion;
     private javax.swing.JLabel labelNac;
