@@ -48,7 +48,7 @@ public class Principal extends javax.swing.JFrame {
         btnDerecha = new javax.swing.JButton();
         btnGuardar = new javax.swing.JButton();
         jLabel2 = new javax.swing.JLabel();
-        jTextField1 = new javax.swing.JTextField();
+        fieldIndice = new javax.swing.JTextField();
 
         javax.swing.GroupLayout jPanel2Layout = new javax.swing.GroupLayout(jPanel2);
         jPanel2.setLayout(jPanel2Layout);
@@ -122,6 +122,11 @@ public class Principal extends javax.swing.JFrame {
 
         btnIzquierda.setFont(new java.awt.Font("Dialog", 0, 14)); // NOI18N
         btnIzquierda.setText("<<");
+        btnIzquierda.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnIzquierdaActionPerformed(evt);
+            }
+        });
 
         btnDerecha.setFont(new java.awt.Font("Dialog", 0, 14)); // NOI18N
         btnDerecha.setText(">>");
@@ -133,6 +138,11 @@ public class Principal extends javax.swing.JFrame {
 
         btnGuardar.setFont(new java.awt.Font("Dialog", 0, 18)); // NOI18N
         btnGuardar.setText("Guardar");
+        btnGuardar.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnGuardarActionPerformed(evt);
+            }
+        });
 
         javax.swing.GroupLayout panelTextoLayout = new javax.swing.GroupLayout(panelTexto);
         panelTexto.setLayout(panelTextoLayout);
@@ -213,11 +223,13 @@ public class Principal extends javax.swing.JFrame {
         jLabel2.setFont(new java.awt.Font("Dialog", 0, 14)); // NOI18N
         jLabel2.setText("Indice  :");
 
-        jTextField1.setFont(new java.awt.Font("Dialog", 0, 14)); // NOI18N
-        jTextField1.setText("0");
-        jTextField1.addActionListener(new java.awt.event.ActionListener() {
+        fieldIndice.setEditable(false);
+        fieldIndice.setFont(new java.awt.Font("Dialog", 0, 14)); // NOI18N
+        fieldIndice.setHorizontalAlignment(javax.swing.JTextField.CENTER);
+        fieldIndice.setText("0");
+        fieldIndice.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jTextField1ActionPerformed(evt);
+                fieldIndiceActionPerformed(evt);
             }
         });
 
@@ -242,7 +254,7 @@ public class Principal extends javax.swing.JFrame {
                 .addGap(381, 381, 381)
                 .addComponent(jLabel2)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addComponent(jTextField1, javax.swing.GroupLayout.PREFERRED_SIZE, 29, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(fieldIndice, javax.swing.GroupLayout.PREFERRED_SIZE, 29, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
         panelPrincipalLayout.setVerticalGroup(
@@ -257,7 +269,7 @@ public class Principal extends javax.swing.JFrame {
                 .addGap(37, 37, 37)
                 .addGroup(panelPrincipalLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel2)
-                    .addComponent(jTextField1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(fieldIndice, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(122, 122, 122))
         );
 
@@ -300,12 +312,28 @@ public class Principal extends javax.swing.JFrame {
     }//GEN-LAST:event_fieldNacActionPerformed
 
     private void btnDerechaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnDerechaActionPerformed
-        // TODO add your handling code here:
+        String indice = fieldIndice.getText(); //Se trae el texto del field
+        
+        int numIndice = Integer.parseInt(indice); //Se convierte en integer para trabajarlo
+        
+        if(numIndice <9){ //Se limita el numero de pulsaciones a 9, no incrementa más
+            numIndice++; //Se suma según la pulsación
+            indice = String.valueOf(numIndice); //Se pasa de nuevo a String para mostrar el numero actualizado
+            fieldIndice.setText(indice); //Se setea el valor nuevo
+        }
     }//GEN-LAST:event_btnDerechaActionPerformed
 
-    private void jTextField1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jTextField1ActionPerformed
+    private void fieldIndiceActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_fieldIndiceActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_jTextField1ActionPerformed
+    }//GEN-LAST:event_fieldIndiceActionPerformed
+
+    private void btnIzquierdaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnIzquierdaActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_btnIzquierdaActionPerformed
+
+    private void btnGuardarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnGuardarActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_btnGuardarActionPerformed
 
 
 
@@ -315,6 +343,7 @@ public class Principal extends javax.swing.JFrame {
     private javax.swing.JButton btnIzquierda;
     private javax.swing.JTextField fieldApellido;
     private javax.swing.JTextField fieldDireccion;
+    private javax.swing.JTextField fieldIndice;
     private javax.swing.JTextField fieldNac;
     private javax.swing.JTextField fieldNombre;
     private javax.swing.JTextField fieldRut;
@@ -322,7 +351,6 @@ public class Principal extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JPanel jPanel2;
-    private javax.swing.JTextField jTextField1;
     private javax.swing.JLabel labelApellido;
     private javax.swing.JLabel labelDireccion;
     private javax.swing.JLabel labelNac;
