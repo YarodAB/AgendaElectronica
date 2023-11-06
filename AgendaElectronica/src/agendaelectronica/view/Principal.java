@@ -328,7 +328,16 @@ public class Principal extends javax.swing.JFrame {
     }//GEN-LAST:event_fieldIndiceActionPerformed
 
     private void btnIzquierdaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnIzquierdaActionPerformed
-        // TODO add your handling code here:
+                String indice = fieldIndice.getText(); //Se trae el texto del field
+        
+        int numIndice = Integer.parseInt(indice); //Se convierte en integer para trabajarlo
+        
+        if(numIndice >0){ //Resta hasta llegar al 0
+            numIndice--; //Se resta según la pulsación
+            indice = String.valueOf(numIndice); //Se pasa de nuevo a String para mostrar el numero actualizado
+            fieldIndice.setText(indice); //Se setea el valor nuevo
+        }
+
     }//GEN-LAST:event_btnIzquierdaActionPerformed
 
     private void btnGuardarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnGuardarActionPerformed
